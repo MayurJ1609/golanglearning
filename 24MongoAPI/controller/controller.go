@@ -13,7 +13,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/x/mongo/driver/mongocrypt/options"
 )
 
 const connectionString = "mongodb://localhost:27017"
@@ -94,7 +93,7 @@ func deleteAllMovie() int {
 		log.Fatal(err)
 	}
 	fmt.Println("Deleted all movies with count: ", deleteResult.DeletedCount)
-	return deleteResult.deleteCount
+	return int(deleteResult.DeletedCount)
 }
 
 // Get all movies
